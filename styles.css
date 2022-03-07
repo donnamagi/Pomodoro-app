@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+
+div {
+    border: solid white 3px;
+    padding: 10px;
+    align-items: center;
+    display: block;
+    background-color:grey;
+    text-align: center;
+
+}
+
+
+
+nav {
+    border: solid white 2px;
+    display: flex; 
+    background-color: rgb(82, 81, 79);
+
+}
+
+nav p {
+    border: solid white 1px;
+    border-radius: 10%;
+    color: white;
+    padding: 10px;
+    margin: 7px;
+
+}
+
+nav p:hover {
+    background-color: rgb(124, 123, 120);
+}
+
+.navbar {
+    justify-content: right;
+    padding-right: 15px;
+
+}
+
+header {
+    color: white;
+    padding: 10px;
+
+}
+
+img {
+    width: 90%;
+    max-width:min-content;
+    height:auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}
+
+.centered {
+    margin: 5%;
+    width: auto;
+    max-width: 90%;
+}
