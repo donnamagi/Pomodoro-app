@@ -11,6 +11,25 @@
 
         <h2>This will be the todo list section</h2>
         <img src="https://emojiapi.dev/api/v1/1f422.svg" alt="A cute turtle for you :)">
+
+        <form action="", method = "post" novalidate> 
+
+            {{ form.hidden_tag() }}
+        
+            {{ form.todo.label }} <br>
+            {{ form.todo() }} <br>
+        
+            {{form.submit()}} <br>
+        
+        </form> <br>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         
         <div>
             <a href="index.html">Link to my first page :)</a>
