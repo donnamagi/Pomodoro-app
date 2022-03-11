@@ -11,9 +11,9 @@
 <body>
 
     <nav class="navbar">
-        <p><a href="/">Home</a></p>
-        <p><a href="/login">Login</a></p>
-        <p><a href="/todolist">Todos</a></p>
+        <p><a href="{{ url_for('index') }}">Home</a></p>
+        <p><a href="{{ url_for('login') }}">Login</a></p>
+        <p><a href="{{ url_for('todolist') }}">Todos</a></p>
     </nav>
 
     <div class="container">
