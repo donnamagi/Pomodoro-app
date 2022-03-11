@@ -6,19 +6,17 @@ from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST'])
-
 def index():
-
-    return render_template('index.html', title = "Pomodoro app")
+    return render_template('index.html', title = 'Pomodoro app')
 
 @app.route('/todolist')
 def todolist():
 
-    return render_template('todolist.html', title = "Pomodoro app")
+    return render_template('todolist.html', title = 'Todo list')
 
 @app.route('/login', methods= ['GET', 'POST'])
 def login():
-    return render_template('login.html', title = "Pomodoro app")
+    return render_template('login.html', title = 'Login')
 
 
 
