@@ -1,64 +1,41 @@
 {% extends 'base.html' %} {% block content %}
 
+<header>
+    <h1>Your tasks for the day</h1>
+</header>
 
-<div>
-
-    <header>
-        <h1>Your tasks for the day</h1>
-    </header>
-
-    <div>
-
-        <h2>This will be the todo list section</h2>
-
-        <div class = 'todolist'>
-            {% if todos %}
-                {% for task in todos %}
-                <li> <p>
-                {{ task }}
-                <a href= "/delete/{{ task }}" > <sup>(X)</sup> </a> 
-                </p> </li>
-                {% endfor %}
-            {% endif %}
-        </div>
-        {% for entry in users_entries %}
-
-<li>
-<p><a href= "/emoji/{{ entry.id }}" > 
-  
-    <img src="https://emojiapi.dev/api/v1/{{ icons_by_emoji_id[entry.emoji_id] }}/32.png">
-
-    {{entry.name}} 
-</a> 
-    
-    <a href= "/delete/{{ entry.id }}" > <sup>(X)</sup> </a> 
-</p>
-</li>
-
-{% endfor %}
-        <form action="", method = "post" novalidate> 
-
-            {{ form.hidden_tag() }}
-        
-            {{ form.todo.label }} <br>
-            {{ form.todo() }} <br>
-        
-            {{form.submit()}} <br>
-        
-        </form> <br>
-
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-
-
-    </div>
-
+<div class = 'todolist'>
+    {% if todos %}
+    <ul>
+        {% for task in todos %}
+        <li>
+        {{ task }}  
+        <a href= "/delete/{{ task }}" > <sup>(X)</sup> </a> 
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 </div>
+
+
+<form action="", method = "post" novalidate> 
+
+    {{ form.hidden_tag() }}
+
+    {{ form.todo.label }} <br>
+    {{ form.todo() }} <br>
+
+    {{form.submit()}} <br>
+
+</form> <br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
 
 {% endblock %}
