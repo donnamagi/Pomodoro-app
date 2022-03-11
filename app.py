@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash
+from flask import Flask, render_template, url_for, flash, redirect
 from classes import SubmitForm
 
 # from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin, current_user
@@ -28,6 +28,13 @@ def todolist():
 @app.route('/login', methods= ['GET', 'POST'])
 def login():
     return render_template('login.html', title = 'Login')
+
+@app.route('/delete/<task>')
+def delete(task):
+
+    todos.remove(task)
+    
+    return redirect(url_for('todolist')), flash("Entry deleted")
 
 
 
