@@ -3,8 +3,18 @@
     margin: 0;
     background-color: rgb(73, 73, 73);
     color:white;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
   }
 
+h1, h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+}
+
+a {
+    background-color: inherit;
+}
 
 div {
 
@@ -19,20 +29,17 @@ div {
 
 nav {
     display: flex; 
-
-
 }
 
-nav p {
+.nav-button {
     border: solid white 1px;
     border-radius: 10%;
-    color: white;
     padding: 10px;
     margin: 7px;
 
 }
 
-nav p:hover {
+.nav-button:hover {
     background-color: rgb(124, 123, 120);
 }
 
@@ -64,16 +71,38 @@ img {
 }
 
 .todolist {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 ul {
     padding: 0;
 }
+
+.todo_element {
+    display: flex;
+    border: solid white 1px;
+    margin: 10px;
+    padding: 2%;
+    justify-content: space-between;
+    text-align: left;
+}
+
 li {
     list-style: none;
-    margin: 10px;
-    color: white;
-    border: solid white 1px;
 }
+
+.button {
+    border-radius: 10%;
+    background-color: rgb(133, 133, 133);  
+}
+.task {
+    text-align: left;
+    font-size: large;
+}
+
+#todo {
+    background-color: rgb(133, 133, 133);
+    margin: 10px;
+}
+
