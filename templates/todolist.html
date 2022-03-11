@@ -4,7 +4,7 @@
 <div>
 
     <header>
-        <h1>A personalized page for the user, maybe?</h1>
+        <h1>Your tasks for the day</h1>
     </header>
 
     <div>
@@ -12,6 +12,13 @@
         <h2>This will be the todo list section</h2>
         <img src="https://emojiapi.dev/api/v1/1f422.svg" alt="A cute turtle for you :)">
 
+        <div class = 'todolist'>
+            {% if todos %}
+                {% for task in todos %}
+                {{ task }}
+                {% endfor %}
+            {% endif %}
+        </div>
         <form action="", method = "post" novalidate> 
 
             {{ form.hidden_tag() }}
@@ -30,10 +37,7 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        
-        <div>
-            <a href="index.html">Link to my first page :)</a>
-        </div>
+
 
     </div>
 

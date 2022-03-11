@@ -7,6 +7,8 @@ from classes import SubmitForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret key'
 
+todos = []
+
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     return render_template('index.html', title = 'Pomodoro app')
@@ -17,9 +19,11 @@ def todolist():
     form = SubmitForm()
     
     if form.validate_on_submit():
-        flash('Lets start working!')
+        todos.append(form.todo.data)
+        flash('Task added!')
 
-    return render_template('todolist.html', title = 'Todo list', form = form)
+
+    return render_template('todolist.html', title = 'Todo list', form = form, todos = todos)
 
 @app.route('/login', methods= ['GET', 'POST'])
 def login():
