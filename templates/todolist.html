@@ -8,10 +8,15 @@
     {% if todos %}
     <ul>
         {% for task in todos %}
-        <li>
-        {{ task }}  
-        <a href= "/delete/{{ task }}" > <sup>(X)</sup> </a> 
-        </li>
+        <div class ="todo_element">
+            <div class="task">
+            <li> {{ task }} </li>
+            </div> 
+
+            <div class="button">
+                <a href= "/delete/{{ task }}" >Done</a> 
+            </div>
+        </div>
         {% endfor %}
     </ul>
     {% endif %}
