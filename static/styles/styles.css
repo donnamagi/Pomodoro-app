@@ -10,6 +10,7 @@
 h1, h2 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: lighter;
+    margin-top: 3%;
 }
 
 a {
@@ -31,12 +32,16 @@ nav {
     display: flex; 
 }
 
-.nav-button {
+.nav-button, button, .button {
     border: solid white 1px;
     border-radius: 10%;
     padding: 10px;
     margin: 7px;
 
+}
+
+button {
+    font-size: 20px;
 }
 
 .nav-button:hover {
@@ -106,3 +111,6 @@ li {
     margin: 10px;
 }
 
+#signup {
+    margin-top: 10%;
+}
