@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+
+<header>
+    <h1>Your tasks for the day</h1>
+</header>
+
+<div class = 'todolist'>
+    {% if todos %}
+    <ul>
+        {% for task in todos %}
+        <div class ="todo_element">
+            <div class="task">
+            <li> {{ task }} </li>
+            </div> 
+
+            <div class="button">
+                <a href= "/delete/{{ task }}" >Done</a> 
+            </div>
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+
+<form action="", method = "post" novalidate> 
+
+    {{ form.hidden_tag() }}
+
+    {{ form.todo.label }} <br>
+    {{ form.todo() }} <br>
+
+    {{form.submit()}} <br>
+
+</form> <br>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+{% endblock %}
