@@ -3,12 +3,19 @@ from . import pomodoro
 
 # from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin, current_user
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret key'
+def create_app():
+  app = Flask(__name__)
+  app.config.from_object('app.config')
 
+  register_blueprints(app)
 
-app.register_blueprint(pomodoro.routes.blueprint)
+  return app
 
+# Blueprint
+def register_blueprints(app: Flask):
+    app.register_blueprint(pomodoro.routes.blueprint)
+
+# Main Routes
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     return render_template('index.html', title = 'Pomodoro app')
