@@ -24,5 +24,5 @@ def delete(task):
 
     todos.remove(task)
     
-    return redirect(url_for('todolist')), flash("Entry deleted")
+    return redirect(url_for('pomodoro.todolist')), flash("Entry deleted")
 
