@@ -11,15 +11,9 @@
 <body>
 
     <nav class="navbar">
-        <div class="nav-button"> 
-            <a href="{{ url_for('main_pages.index') }}">Home</a> 
-        </div>
-        <div class="nav-button"> 
-            <a href="{{ url_for('main_pages.login') }}">Login</a>
-        </div>
-        <div class="nav-button">
-            <a href="{{ url_for('pomodoro.todolist') }}">Todos</a>
-        </div>
+            <a class = "nav-button" href="{{ url_for('main_pages.index') }}">Home</a> 
+            <a class = "nav-button" href="{{ url_for('main_pages.login') }}">Login</a>
+            <a class = "nav-button" href="{{ url_for('pomodoro.todolist') }}">Todos</a>
     </nav>
 
     <div class="container">

@@ -9,13 +9,13 @@
     <ul>
         {% for task in todos %}
         <div class ="todo_element">
+
             <div class="task">
             <li> {{ task }} </li>
             </div> 
 
-            <div class="button">
-                <a href= "/delete/{{ task }}" >Done</a> 
-            </div>
+            <a class="done-button" href= "/delete/{{ task }}" >Done</a> 
+
         </div>
         {% endfor %}
     </ul>

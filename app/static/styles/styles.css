@@ -32,11 +32,13 @@ nav {
     display: flex; 
 }
 
-.nav-button, button, .button {
+.nav-button, button, .done-button {
     border: solid white 1px;
-    border-radius: 10%;
     padding: 10px;
     margin: 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 
 }
 
@@ -97,7 +99,7 @@ li {
     list-style: none;
 }
 
-.button {
+.done-button {
     border-radius: 10%;
     background-color: rgb(133, 133, 133);  
 }
