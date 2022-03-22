@@ -80,6 +80,7 @@ img {
 .todolist {
     margin-left: 30%;
     margin-right: 30%;
+    margin-bottom: 2%;
 }
 
 ul {
@@ -111,6 +112,23 @@ li {
 #todo {
     background-color: rgb(133, 133, 133);
     margin: 10px;
+    padding: 10px;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+#submit {
+    margin: 6px 10px;
+	padding: 10px;
+	border: solid rgb(124, 123, 120) 1px;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+#submit:hover {
+    cursor: pointer;
 }
 
 #signup {
