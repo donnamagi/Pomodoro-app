@@ -51,8 +51,8 @@ button {
 }
 
 .navbar {
-    justify-content: right;
     padding-right: 15px;
+    text-align: right;
 }
 
 header {
