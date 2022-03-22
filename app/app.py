@@ -10,7 +10,6 @@ def register_blueprints(app: Flask):
     app.register_blueprint(pomodoro.routes.blueprint)
     app.register_blueprint(main_pages.routes.blueprint)
 
- 
 def create_app():
   app = Flask(__name__)
 
