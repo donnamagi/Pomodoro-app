@@ -1,10 +1,9 @@
 from flask import Flask, render_template, url_for, flash, redirect
-from . import pomodoro
-
-# from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin, current_user
+from . import pomodoro, main_pages
 
 def register_blueprints(app: Flask):
     app.register_blueprint(pomodoro.routes.blueprint)
+    app.register_blueprint(main_pages.routes.blueprint)
 
 def create_app():
   app = Flask(__name__)
@@ -15,21 +14,3 @@ def create_app():
   return app
 
 app = create_app() 
-
-
-# Main Routes
-@app.route('/', methods = ['GET', 'POST'])
-def index():
-    return render_template('index.html', title = 'Pomodoro app')
-
-@app.route('/login', methods= ['GET', 'POST'])
-def login():
-    return render_template('login.html', title = 'Login')
-
-
-# For future reference
-
-# @blueprint.route('/logout')
-# def logout():
-#     logout_user()
-#     return redirect(url_for('login'))
