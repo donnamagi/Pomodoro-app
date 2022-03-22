@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="centered">
+        <h1>Page Not Found</h1>
+        <p>What you were looking for is just not there. </p>
+        <button><a href="{{ url_for('main_pages.index') }}"> Go somewhere nice </button>
+    </div>
+
+{% endblock %}
