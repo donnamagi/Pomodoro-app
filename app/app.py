@@ -18,7 +18,6 @@ def create_app():
   app = Flask(__name__)
 
   #Config 
-  app.config['SECRET_KEY'] = 'oop'
   app.config.from_object('app.config')
 
   #Routes
@@ -30,3 +29,5 @@ def create_app():
 
 app = create_app() 
 
+# Used once to initialize the database:
+# db.create_all(app=create_app())
