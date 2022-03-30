@@ -32,3 +32,4 @@ app = create_app()
 
 # Used once to initialize the database:
 # db.create_all(app=create_app())
+# or after installing migrations -> terminal "flask db init"
