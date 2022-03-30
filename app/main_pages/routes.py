@@ -11,9 +11,9 @@ blueprint = Blueprint('main_pages', __name__)
 def index():
     return render_template('index.html', title = 'Pomodoro app')
 
-@blueprint.route('/login', methods= ['GET', 'POST'])
-def login():
-    return render_template('login.html', title = 'Login')
+@blueprint.route('/user', methods= ['GET', 'POST'])
+def authentication():
+    return render_template('authentication.html', title = 'Sign in')
 
 @blueprint.route('/register', methods= ['GET', 'POST'])
 def register():
@@ -38,6 +38,22 @@ def register():
             flash('This username is already taken.')
 
     return render_template('registration.html', form = form, title = 'Register')
+
+@blueprint.route('/login', methods= ['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+
+        user = User.query.filter_by(username = form.username.data).first()
+
+        if user and user.check_password(form.password.data):
+            # login_user(user)
+            return redirect(url_for('main_pages.index'))
+        else:
+            flash('Register first')
+
+    return render_template('login_page.html', form = form, title = 'Login')
 
 # For future reference
 
