@@ -4,6 +4,7 @@ class User(db.Model):
     id= db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(100), index = True, unique = True)
     password = db.Column(db.String(100))
+    todos = db.relationship('Todos', backref = 'todos', lazy = True)
 
 class Todos(db.Model):
     id = db.Column(db.Integer, primary_key = True)
