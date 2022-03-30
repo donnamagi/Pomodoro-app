@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template, url_for, redirect
+from flask import Blueprint, render_template, url_for, redirect, flash
 from .models import User
+from app.classes import RegisterForm, LoginForm
+from app.extensions.database import db
 
 blueprint = Blueprint('main_pages', __name__)
 
@@ -21,7 +23,6 @@ def register():
         flash('Make sure you enter the same password')
 
     if form.validate_on_submit():
-        
         user = User(username = form.username.data)
         user.set_password(form.password.data)
 
@@ -33,10 +34,9 @@ def register():
         except:
             db.session.rollback()
             
-        if not User.query.get(form.email.data):
-            flash('This email is already in use.')
+        if not User.query.get(form.username.data):
+            flash('This username is already taken.')
 
-        
     return render_template('registration.html', form = form, title = 'Register')
 
 # For future reference
