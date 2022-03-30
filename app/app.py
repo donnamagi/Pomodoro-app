@@ -1,7 +1,10 @@
-from flask import Flask, render_template, url_for, flash, redirect
+from flask import Flask
 from . import pomodoro, main_pages
 from log import logger
+
 from app.extensions.database import db, migrate
+from app.extensions.login import login_manager
+
 
 def page_not_found(e):
   logger.error('Page not found')
@@ -14,6 +17,7 @@ def register_blueprints(app: Flask):
 def register_extensions(app: Flask):
   db.init_app(app)
   migrate.init_app(app, db)
+  login_manager.init_app(app)
 
 def create_app():
   app = Flask(__name__)
