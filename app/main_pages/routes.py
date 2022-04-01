@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, url_for, redirect, flash
+from flask_login import login_user, logout_user
 from .models import User
 from app.classes import RegisterForm, LoginForm
 from app.extensions.database import db
+
 
 blueprint = Blueprint('main_pages', __name__)
 
@@ -29,7 +31,7 @@ def register():
         try:
             db.session.add(user)
             db.session.commit()
-            # login_user(user)
+            login_user(user)
             return redirect(url_for('main_pages.index'))
         except:
             db.session.rollback()
@@ -48,16 +50,16 @@ def login():
         user = User.query.filter_by(username = form.username.data).first()
 
         if user and user.check_password(form.password.data):
-            # login_user(user)
+            login_user(user)
+            print('logged in')
             return redirect(url_for('main_pages.index'))
         else:
             flash('Register first')
 
     return render_template('login_page.html', form = form, title = 'Login')
 
-# For future reference
 
-# @blueprint.route('/logout')
-# def logout():
-#     logout_user()
-#     return redirect(url_for('main_pages.login'))
+@blueprint.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('main_pages.index'))
