@@ -2,7 +2,8 @@
 {% block content %}
 
 <form action="", method = "post" novalidate> 
-
+    <input type="hidden" name="next_url" value="{{ request.args.get('next', '') }}" />  
+    
     {{ form.hidden_tag() }}
 
     {{ form.username.label }} <br>

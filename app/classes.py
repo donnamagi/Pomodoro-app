@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import SubmitField, StringField, PasswordField
+from wtforms import SubmitField, StringField, PasswordField, HiddenField
 from wtforms.validators import DataRequired, EqualTo
 
 class SubmitForm(FlaskForm):
@@ -16,3 +16,4 @@ class LoginForm(FlaskForm):
     username = StringField('username', validators = [DataRequired()])
     password = PasswordField('password', validators = [DataRequired()])
     submit = SubmitField ('Log in')
+    next_url = HiddenField('next') 

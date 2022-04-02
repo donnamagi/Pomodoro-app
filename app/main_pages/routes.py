@@ -46,20 +46,21 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-
+        next_url = form.next_url.data
         user = User.query.filter_by(username = form.username.data).first()
 
         if user and user.check_password(form.password.data):
             login_user(user)
-            print('logged in')
-            return redirect(url_for('main_pages.index'))
+            return redirect(next_url) or url_for('main_pages.index')
+
         else:
             flash('Register first')
-
+    print('hehe')
     return render_template('login_page.html', form = form, title = 'Login')
 
 
 @blueprint.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('main_pages.index'))
