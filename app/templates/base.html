@@ -19,6 +19,13 @@
             <a class = "nav-button" href="{{ url_for('main_pages.logout') }}"> Logout </a>
             {% endif %}
     </div>
+    <div class="navbar"> 
+    {% if current_user.is_authenticated %}
+        <small>
+          Logged in as {{ current_user.username }}.
+        </small>
+    {% endif %}
+    </div>
 
     <div class="container">
         {% block content %}
