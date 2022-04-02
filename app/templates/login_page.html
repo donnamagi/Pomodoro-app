@@ -1,9 +1,17 @@
 {% extends 'base.html' %} 
 {% block content %}
 
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
 <form action="", method = "post" novalidate> 
     <input type="hidden" name="next_url" value="{{ request.args.get('next', '') }}" />  
-    
+
     {{ form.hidden_tag() }}
 
     {{ form.username.label }} <br>
@@ -15,13 +23,9 @@
     {{form.submit()}} <br>
 
 </form> <br>
-
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+<div>
+    <h2>Don't have an account yet?</h2>
+    <a class = "button" href="{{ url_for('main_pages.register') }}"> Sign up </a>
+</div>
 
 {% endblock %}

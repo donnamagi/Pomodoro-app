@@ -32,7 +32,7 @@ nav {
     display: flex; 
 }
 
-.nav-button, button, .done-button {
+.nav-button, button, .done-button, .button {
     border: solid white 1px;
     padding: 10px;
     margin: 7px;
@@ -42,8 +42,8 @@ nav {
 
 }
 
-button {
-    font-size: 20px;
+.button {
+	border: solid rgb(124, 123, 120) 1px;
 }
 
 .nav-button:hover {

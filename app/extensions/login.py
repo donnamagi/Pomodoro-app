@@ -2,8 +2,7 @@ from flask_login import LoginManager
 from app.main_pages.models import User
 
 login_manager = LoginManager()
-login_manager.login_view = "main_pages.authentication"
-login_manager.login_message = "You'll have to log in to do that!"
+login_manager.login_view = "main_pages.login"
 
 @login_manager.user_loader
 def load_user(user_id):
