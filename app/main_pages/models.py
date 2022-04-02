@@ -6,7 +6,7 @@ class User(db.Model, UserMixin):
     id= db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(100), index = True, unique = True)
     password = db.Column(db.String(100))
-    todos = db.relationship('Todos', backref = 'todos', lazy = True)
+    todos = db.relationship('Todos', backref = 'todos', lazy = 'dynamic')
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
