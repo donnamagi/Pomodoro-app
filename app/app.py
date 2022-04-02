@@ -1,10 +1,9 @@
-from flask import Flask
+from flask import Flask, render_template
 from . import pomodoro, main_pages
 from log import logger
 
 from app.extensions.database import db, migrate
 from app.extensions.login import login_manager
-
 
 def page_not_found(e):
   logger.error('Page not found')
