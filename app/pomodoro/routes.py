@@ -14,7 +14,7 @@ def todolist():
 
     id = current_user.id
     todos = current_user.todos.all()
-    form = classes.SubmitForm(csrf_enabled=False)
+    form = classes.SubmitForm()
 
     if form.validate_on_submit():
 

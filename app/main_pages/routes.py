@@ -19,7 +19,7 @@ def authentication():
 
 @blueprint.route('/register', methods= ['GET', 'POST'])
 def register():
-    form = RegisterForm(csrf_enabled = False)
+    form = RegisterForm()
 
     if form.password.data != form.password2.data:
         flash('Make sure you enter the same password')
@@ -43,7 +43,7 @@ def register():
 
 @blueprint.route('/login', methods= ['GET', 'POST'])
 def login():
-    form = LoginForm(csrf_enabled = False)
+    form = LoginForm()
 
     if form.validate_on_submit():
         next_url = form.next_url.data
@@ -55,7 +55,7 @@ def login():
 
         else:
             flash('Register first')
-    print('hehe')
+
     return render_template('login_page.html', form = form, title = 'Login')
 
 
