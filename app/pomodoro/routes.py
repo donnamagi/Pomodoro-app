@@ -15,7 +15,7 @@ def todolist():
     id = current_user.id
     todos = current_user.todos.all()
     form = classes.SubmitForm()
-    
+
     if form.validate_on_submit():
 
         task = Todos(task = form.todo.data, user_id = id)
@@ -35,7 +35,10 @@ def todolist():
 @blueprint.route('/delete/<task>')
 def delete(task):
 
-    todos.remove(task)
-    
+    todo = Todos.query.filter_by(task = task).first()
+    print(todo)
+    db.session.delete(todo)
+    db.session.commit()
+
     return redirect(url_for('pomodoro.todolist')), flash("Entry deleted")
 
