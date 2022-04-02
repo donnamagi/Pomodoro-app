@@ -11,10 +11,10 @@
         <div class ="todo_element">
 
             <div class="task">
-            <li> {{ task }} </li>
+            <li> {{ task.task }} </li>
             </div> 
 
-            <a class="done-button" href= "/delete/{{ task }}" >Done</a> 
+            <a class="done-button" href= "/delete/{{ task.task }}" >Done</a> 
 
         </div>
         {% endfor %}
