@@ -25,15 +25,20 @@ def register():
         flash('Make sure you enter the same password')
 
     if form.validate_on_submit():
+        print('form validated')
         user = User(username = form.username.data)
+        print(user)
+        print(user.username)
         user.set_password(form.password.data)
 
         try:
             db.session.add(user)
             db.session.commit()
+            print('commit done')
             login_user(user)
             return redirect(url_for('main_pages.index'))
         except:
+            flash('Error')
             db.session.rollback()
             
         # if not User.query.get(form.username.data):
