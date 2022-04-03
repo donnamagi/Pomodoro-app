@@ -2,7 +2,7 @@ from app.extensions.database import db
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import UserMixin
 
-class User(db.Model, UserMixin):
+class user(db.Model, UserMixin):
     id= db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(100), index = True, unique = True)
     password = db.Column(db.String(100))
@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-class Todos(db.Model):
+class todos(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     task = db.Column(db.String(200), index = True)
