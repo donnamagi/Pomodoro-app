@@ -36,8 +36,8 @@ def register():
         except:
             db.session.rollback()
             
-        if not User.query.get(form.username.data):
-            flash('This username is already taken.')
+        # if not User.query.get(form.username.data):
+        #     flash('This username is already taken.')
 
     return render_template('registration.html', form = form, title = 'Register')
 
