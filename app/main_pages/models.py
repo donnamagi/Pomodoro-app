@@ -5,7 +5,7 @@ from flask_login import UserMixin
 class User(db.Model, UserMixin):
     id= db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(100), index = True, unique = True)
-    password = db.Column(db.String(100))
+    password = db.Column(db.String(300))
     todos = db.relationship('Todos', backref = 'todos', lazy = 'dynamic')
 
     def set_password(self, password):
