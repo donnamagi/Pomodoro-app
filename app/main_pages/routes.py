@@ -37,7 +37,8 @@ def register():
             print('commit done')
             login_user(user)
             return redirect(url_for('main_pages.index'))
-        except:
+        except Exception as error_message:
+            print(error_message)
             flash('Error')
             db.session.rollback()
             
