@@ -1,10 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 
 <div>
-    <h1 class="counter-display">00:00</h1>
-    <button class="counter-pause">Pause</button>
-    <button class="counter-skip">Skip</button>
+    <div>
+        <h1 class="counter-display">00:00</h1>     
+    </div>
     <button class="counter-start">Start</button>
+    <button class="counter-skip">Skip</button>
 
     <script src="{{ url_for('static',filename='src/app.js') }}"></script>
 </div>

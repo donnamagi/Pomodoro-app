@@ -1,10 +1,9 @@
 let counterDisplayElem = document.querySelector('.counter-display');
-let counterPauseElem = document.querySelector('.counter-pause');
 let counterSkipElem = document.querySelector('.counter-skip');
 let counterStartElem = document.querySelector('.counter-start');
 
-let counterMinute = 9;
-let counterSecond = 11;
+let counterMinute = 25;
+let counterSecond = 0;
 let isPaused = true;
 
 const fillZero=(n)=> ('00'+n).slice(-2);
@@ -14,18 +13,20 @@ function updateDisplay(){
     counterDisplayElem.innerHTML = fillZero(counterMinute) + ':' + fillZero(counterSecond);
 };
 
-counterPauseElem.addEventListener("click",()=>{
-    isPaused = true;
-    updateDisplay();
-});
-
 counterSkipElem.addEventListener("click",()=>{
     clearInterval(PomodoroCounter);
     updateDisplay();
 });
 
 counterStartElem.addEventListener("click", () => {
-    isPaused = false;
+    if (isPaused) {
+        isPaused = false;
+        counterStartElem.innerHTML = 'Pause';
+    } else {
+        isPaused = true;
+        counterStartElem.innerHTML = 'Start';
+    }
+    updateDisplay();
 })
 
 PomodoroCounter = setInterval(timer, 1000);
