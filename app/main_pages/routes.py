@@ -27,7 +27,7 @@ def register():
     if form.validate_on_submit():
 
         #Error message for the user
-        if not User.query.get(form.username.data):
+        if User.query.get(form.username.data):
             flash('This username is already taken.')
             return redirect(url_for('main_pages.register'))
 
@@ -52,15 +52,25 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        next_url = form.next_url.data
+
+        #Checking if user exists
         user = User.query.filter_by(username = form.username.data).first()
+        if not user:
+            flash('Register first')
+            return redirect(url_for('main_pages.login'))
 
         if user and user.check_password(form.password.data):
             login_user(user)
-            return redirect(next_url) or url_for('main_pages.index')
+
+            #If applicable, next_url will enable user to continue where they were before they got rerouted to login
+            next_url = form.next_url.data
+            if next_url != '':
+                return redirect(next_url)
+
+            return redirect(url_for('pomodoro.todolist'))
 
         else:
-            flash('Register first')
+            flash('Are you sure you entered the right password?')
 
     return render_template('login_page.html', form = form, title = 'Login')
 
