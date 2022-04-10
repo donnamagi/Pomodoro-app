@@ -140,3 +140,21 @@ li {
     margin-right: 20%;
     text-align: left;
 }
+.counter {
+    background-color: rgb(133, 133, 133);
+    border-radius: 3%;
+}
+.counter-display {
+    font-size: 100px;
+    background-color: inherit;
+    margin-top: 0;
+}
+
+.main-counter-column {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-column {
+    padding: 2%;
+}

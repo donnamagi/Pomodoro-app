@@ -1,15 +1,17 @@
 {% extends 'base.html' %} {% block content %}
+<div class="main-counter-column">
+    <div class="column"></div>
 
-<div>
-    <div>
+    <div class="counter main-column">
         <h1 class="counter-display">00:00</h1>     
+        <button class="counter-start">Start</button>
+        <button class="counter-skip">Skip</button>
+
+        <script src="{{ url_for('static',filename='src/app.js') }}"></script>
     </div>
-    <button class="counter-start">Start</button>
-    <button class="counter-skip">Skip</button>
 
-    <script src="{{ url_for('static',filename='src/app.js') }}"></script>
+    <div class="column"></div>
 </div>
-
 <header>
     <h1>Your tasks for the day</h1>
 </header>
