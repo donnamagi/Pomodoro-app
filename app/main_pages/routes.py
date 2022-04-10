@@ -25,25 +25,25 @@ def register():
         flash('Make sure you enter the same password')
 
     if form.validate_on_submit():
-        print('form validated')
+
+        #Error message for the user
+        if not User.query.get(form.username.data):
+            flash('This username is already taken.')
+            return redirect(url_for('main_pages.register'))
+
+        #Creating database entry
         user = User(username = form.username.data)
-        print(user)
-        print(user.username)
         user.set_password(form.password.data)
 
         try:
             db.session.add(user)
             db.session.commit()
-            print('commit done')
             login_user(user)
             return redirect(url_for('main_pages.index'))
         except Exception as error_message:
             print(error_message)
             flash('Error')
             db.session.rollback()
-            
-        # if not User.query.get(form.username.data):
-        #     flash('This username is already taken.')
 
     return render_template('registration.html', form = form, title = 'Register')
 
