@@ -27,7 +27,7 @@ def register():
     if form.validate_on_submit():
 
         #Error message for the user
-        if User.query.get(form.username.data):
+        if User.query.filter_by(username = form.username.data).first():
             flash('This username is already taken.')
             return redirect(url_for('main_pages.register'))
 
