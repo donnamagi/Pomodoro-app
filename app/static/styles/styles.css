@@ -134,3 +134,9 @@ li {
 #signup {
     margin-top: 10%;
 }
+
+.text {
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: left;
+}

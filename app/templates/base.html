@@ -11,8 +11,8 @@
 <body>
 
     <div class="navbar">
-            <a class = "nav-button" href="{{ url_for('main_pages.index') }}">Home</a> 
             <a class = "nav-button" href="{{ url_for('pomodoro.todolist') }}">Todos</a>
+            <a class = "nav-button" href="{{ url_for('main_pages.index') }}">About</a> 
             {% if not current_user.is_authenticated %}
             <a class = "nav-button" href="{{ url_for('main_pages.login') }}"> Login </a>
             {% else  %}
