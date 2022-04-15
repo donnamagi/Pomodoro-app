@@ -39,7 +39,7 @@ nav {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-
+    cursor: pointer;
 }
 
 .button {
@@ -157,4 +157,27 @@ li {
 
 .main-column {
     padding: 2%;
+    padding-top: 0;
+    padding-bottom: 0;
+    cursor: default;
+}
+
+.counter-buttons {
+    padding: 0;
+    background-color: inherit;
+    display: flex;
+    justify-content: space-between;
+}
+
+.counter-button {
+    
+    width: 83px;
+    background-color: inherit;
+    font-size:large;
+}
+
+.counter-start, .counter-skip {
+    width: 70px;
+    font-size: medium;
+    font-variant: small-caps;
 }
