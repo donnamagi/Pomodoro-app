@@ -5,9 +5,18 @@ let counterDisplayElem = document.querySelector('.counter-display');
 let counterSkipElem = document.querySelector('.counter-skip');
 let counterStartElem = document.querySelector('.counter-start');
 
+// Default variables for when the todos page loads
 let counterMinute = 25;
 let counterSecond = 0;
 let isPaused = true;
+let currentButton = document.getElementById('work');
+currentButton.style.backgroundColor = "rgb(171, 169, 169)";
+
+function currentlyActive(selected){
+    currentButton.style.backgroundColor = "inherit";     // Removes previous highlight
+    currentButton = document.getElementById(selected);   // Reassigns active button
+    currentButton.style.backgroundColor = "rgb(171, 169, 169)";
+}
 
 const fillZero=(n)=> ('00'+n).slice(-2);
 updateDisplay();
@@ -23,16 +32,25 @@ counterSkipElem.addEventListener("click",()=>{
     updateDisplay();
 });
 
+counterWorkElem.addEventListener("click", ()=>{
+    counterMinute = 25;
+    counterSecond = 0;
+    updateDisplay();
+    currentlyActive(counterWorkElem.id);
+});
+
 counterRestElem.addEventListener("click", ()=>{
     counterMinute = 5;
     counterSecond = 0;
     updateDisplay();
+    currentlyActive(counterRestElem.id);
 });
 
 counterBreakElem.addEventListener("click", ()=>{
     counterMinute = 15;
     counterSecond = 0;
     updateDisplay();
+    currentlyActive(counterBreakElem.id);
 });
 
 counterStartElem.addEventListener("click", () => {
