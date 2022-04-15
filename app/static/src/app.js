@@ -1,3 +1,6 @@
+let counterWorkElem = document.querySelector('.work');
+let counterRestElem = document.querySelector('.rest');
+let counterBreakElem = document.querySelector('.break');
 let counterDisplayElem = document.querySelector('.counter-display');
 let counterSkipElem = document.querySelector('.counter-skip');
 let counterStartElem = document.querySelector('.counter-start');
@@ -13,8 +16,22 @@ function updateDisplay(){
     counterDisplayElem.innerHTML = fillZero(counterMinute) + ':' + fillZero(counterSecond);
 };
 
+// Event listeners
+
 counterSkipElem.addEventListener("click",()=>{
     clearInterval(PomodoroCounter);
+    updateDisplay();
+});
+
+counterRestElem.addEventListener("click", ()=>{
+    counterMinute = 5;
+    counterSecond = 0;
+    updateDisplay();
+});
+
+counterBreakElem.addEventListener("click", ()=>{
+    counterMinute = 15;
+    counterSecond = 0;
     updateDisplay();
 });
 
