@@ -1,4 +1,6 @@
-const timer = new Timer(25);
+let displayElem = document.querySelector('.counter-display');
+
+const timer = new Timer(25, displayElem);
 
 // timer.startTimer();
 

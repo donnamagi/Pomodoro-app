@@ -1,9 +1,11 @@
 class Timer {
-    constructor(minutes) {
+    constructor(minutes, display) {
         this.remainingTime = this.minToMs(minutes);
         this.isPaused = false;
         this.continue = true;
-        setInterval(this.runTimer.bind(this), 1000)
+        this.display = display;
+        this.updateDisplay();
+        setInterval(this.runTimer.bind(this), 1000);
     };
 
     startTimer() {
@@ -13,14 +15,17 @@ class Timer {
     pauseTimer() {
         this.isPaused = true; 
     } 
+
+    updateDisplay() {
+        var time = this.msCalculator(this.remainingTime);
+        this.display.innerHTML = time;
+    }
     
     runTimer() {
         if (!this.isPaused) {
             this.remainingTime = this.remainingTime - 1000;
-            var time = this.msCalculator(this.remainingTime);
-            console.log(time);
-            // updateDisplay();
-        }
+            this.updateDisplay();
+        }  
     }
 
     minToMs(minutes) {
