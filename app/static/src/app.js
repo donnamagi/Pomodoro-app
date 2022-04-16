@@ -1,6 +1,6 @@
 const timer = new Timer(25);
 
-timer.startTimer();
+// timer.startTimer();
 
 // let counterWorkElem = document.querySelector('.work');
 // let counterRestElem = document.querySelector('.rest');

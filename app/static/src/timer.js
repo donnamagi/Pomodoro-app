@@ -4,6 +4,7 @@ class Timer {
         this.interval;
         this.isPaused = false;
         this.continue = true;
+        setInterval(this.runTimer.bind(this), 1000)
     };
 
     setTime(minutes) {
@@ -11,8 +12,12 @@ class Timer {
     }
     
     startTimer() {
-        setInterval(this.runTimer.bind(this), 1000);
+        this.isPaused = false;
     }
+
+    pauseTimer() {
+        this.isPaused = true; 
+     } 
 
     runTimer() {
         if (!this.isPaused) {
