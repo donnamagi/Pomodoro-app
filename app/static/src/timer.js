@@ -1,7 +1,7 @@
 class Timer {
     constructor(minutes, display) {
         this.remainingTime = this.minToMs(minutes);
-        this.isPaused = false;
+        this.isPaused = true;
         this.continue = true;
         this.display = display;
         this.updateDisplay();
@@ -35,6 +35,14 @@ class Timer {
     msCalculator(ms) {
         const date = new Date(ms);
         return `${('00'+date.getMinutes()).slice(-2)}:${('00'+date.getSeconds()).slice(-2)}`
+    }
+
+    newTimer(minutes) {
+        if (!this.isPaused) {
+            this.pauseTimer();
+        };
+        this.remainingTime = this.minToMs(minutes);
+        this.updateDisplay();
     }
 }
 
