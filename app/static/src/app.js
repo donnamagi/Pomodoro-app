@@ -17,7 +17,12 @@ function currentlyActive(selected){
     currentButton.style.backgroundColor = "rgb(171, 169, 169)";
 }
 
-
+function timerSetup(minutes, element) {
+    if (currentButton != element) {
+        timer.newTimer(minutes);
+        currentlyActive(element.id);
+    }
+}
 // Event listeners
 
 // counterSkipElem.addEventListener("click",()=>{
@@ -30,25 +35,16 @@ function currentlyActive(selected){
 //     updateDisplay();
 // });
 
-workElem.addEventListener("click", ()=>{
-    if (currentButton != workElem) {
-        timer.newTimer(25);
-        currentlyActive(workElem.id);
-    }
+workElem.addEventListener("click", function() {
+    timerSetup(25, workElem);
 });
 
-restElem.addEventListener("click", ()=>{
-    if (currentButton != restElem) {
-        timer.newTimer(5);
-        currentlyActive(restElem.id);
-    }
+restElem.addEventListener("click", function() {
+    timerSetup(5, restElem);
 });
 
-breakElem.addEventListener("click", ()=>{
-    if (currentButton != breakElem) {
-        timer.newTimer(15);
-        currentlyActive(breakElem.id);
-    }
+breakElem.addEventListener("click", function() {
+    timerSetup(15, breakElem);
 });
 
 // counterStartElem.addEventListener("click", () => {
