@@ -19,6 +19,7 @@ function currentlyActive(selected){
 
 function timerSetup(minutes, element) {
     if (currentButton != element) {
+        counterStartElem.innerHTML = 'Start';
         timer.newTimer(minutes);
         currentlyActive(element.id);
     }
@@ -47,31 +48,12 @@ breakElem.addEventListener("click", function() {
     timerSetup(15, breakElem);
 });
 
-// counterStartElem.addEventListener("click", () => {
-//     if (isPaused) {
-//         isPaused = false;
-//         counterStartElem.innerHTML = 'Pause';
-//     } else {
-//         isPaused = true;
-//         counterStartElem.innerHTML = 'Start';
-//     }
-//     updateDisplay();
-// })
-
-// PomodoroCounter = setInterval(timer, 1000);
-
-// function timer() {
-//     if (!isPaused) {
-//         if (counterSecond == 0) {
-//             counterMinute--;
-//             counterSecond = 60;
-//             updateDisplay();
-//         } 
-//         if (counterMinute <= 1) {
-//             clearInterval(PomodoroCounter);
-//         }
-    
-//         counterSecond--;
-//         updateDisplay();
-//     }
-//     }
+counterStartElem.addEventListener("click", () => {
+    if (timer.isPaused) {
+        timer.isPaused = false;
+        counterStartElem.innerHTML = 'Pause';
+    } else {
+        timer.isPaused = true;
+        counterStartElem.innerHTML = 'Start';
+    };
+});
