@@ -8,7 +8,7 @@ class Timer {
         this.pomodoro = 3;
         this.session = 25;
         this.updateDisplay();
-        this.interval = setInterval(this.runTimer.bind(this), 1);
+        this.interval = setInterval(this.runTimer.bind(this), 1000);
     };
 
     startTimer() {
@@ -49,7 +49,7 @@ class Timer {
     newInterval() {
         var next = this.timerSequence();
         this.newTimer(next);
-        this.interval = setInterval(this.runTimer.bind(this), 1);
+        this.interval = setInterval(this.runTimer.bind(this), 1000);
         this.updateDisplay();
     }
 
