@@ -19,9 +19,9 @@ function currentlyActive(selected){
 
 function timerSetup(minutes, element) {
     if (currentButton != element) {
-        counterStartElem.innerHTML = 'Start';
         timer.newTimer(minutes);
         currentlyActive(element.id);
+        timer.updateDisplay();
     }
 }
 // Event listeners
@@ -40,10 +40,8 @@ breakElem.addEventListener("click", function() {
 
 counterStartElem.addEventListener("click", () => {
     if (timer.isPaused) {
-        timer.isPaused = false;
-        counterStartElem.innerHTML = 'Pause';
+        timer.startTimer();
     } else {
-        timer.isPaused = true;
-        counterStartElem.innerHTML = 'Start';
+        timer.pauseTimer();
     };
 });
