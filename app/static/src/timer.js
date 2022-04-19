@@ -2,28 +2,25 @@ class Timer {
     constructor(minutes) {
         this.remainingTime = this.minToMs(minutes);
         this.isPaused = true;
-        this.continue = true;
-        this.display = displayElem;
-        this.startButton = counterStartElem;
         this.pomodoro = 3;
-        this.session = 25;
+        this.session = minutes;
         this.updateDisplay();
         this.interval = setInterval(this.runTimer.bind(this), 1000);
     };
 
     startTimer() {
         this.isPaused = false;
-        this.startButton.innerHTML = 'Pause';
+        counterStartElem.innerHTML = 'Pause';
     }
     
     pauseTimer() {
         this.isPaused = true; 
-        this.startButton.innerHTML = 'Play';
+        counterStartElem.innerHTML = 'Play';
     } 
 
     updateDisplay() {
         var time = this.msCalculator(this.remainingTime);
-        this.display.innerHTML = time;
+        displayElem.innerHTML = time;
 
         var checkSequence = {
             25 : workElem,
@@ -45,14 +42,15 @@ class Timer {
             this.newInterval();
         }
     }
-    
+
+    // Runs when cycles naturally complete
     newInterval() {
-        var next = this.timerSequence();
-        this.newTimer(next);
+        this.newTimer(this.timerSequence());
         this.interval = setInterval(this.runTimer.bind(this), 1000);
         this.updateDisplay();
     }
 
+    // Runs on its own when user manually chooses mode
     newTimer(minutes) {
         this.session = minutes;
         if (!this.isPaused) {
