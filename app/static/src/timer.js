@@ -1,9 +1,10 @@
 class Timer {
-    constructor(minutes, display) {
+    constructor(minutes) {
         this.remainingTime = this.minToMs(minutes);
         this.isPaused = true;
         this.continue = true;
-        this.display = display;
+        this.display = displayElem;
+        this.startButton = counterStartElem;
         this.pomodoro = 3;
         this.session = 25;
         this.updateDisplay();
@@ -12,15 +13,26 @@ class Timer {
 
     startTimer() {
         this.isPaused = false;
+        this.startButton.innerHTML = 'Pause';
     }
     
     pauseTimer() {
         this.isPaused = true; 
+        this.startButton.innerHTML = 'Play';
     } 
 
     updateDisplay() {
         var time = this.msCalculator(this.remainingTime);
         this.display.innerHTML = time;
+
+        var checkSequence = {
+            25 : workElem,
+            5 : restElem,
+            15 : breakElem,
+        };
+        if (checkSequence[this.session] != currentButton) {
+            timerSetup(this.session, checkSequence[this.session]);
+        };
     }
     
     runTimer() {
@@ -53,7 +65,7 @@ class Timer {
         switch (this.session) {
             case 25:
                 this.pomodoro--;
-                if (this.pomodoro = 0) {
+                if (this.pomodoro == 0) {
                     this.pomodoro = 3;
                     return 15;                    
                 }

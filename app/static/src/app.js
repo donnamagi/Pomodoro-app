@@ -6,7 +6,7 @@ let counterSkipElem = document.querySelector('.counter-skip');
 let counterStartElem = document.querySelector('.counter-start');
 let currentButton = document.getElementById('work');
 
-const timer = new Timer(25, displayElem);
+const timer = new Timer(25);
 
 
 currentButton.style.backgroundColor = "rgb(171, 169, 169)";
@@ -25,16 +25,6 @@ function timerSetup(minutes, element) {
     }
 }
 // Event listeners
-
-// counterSkipElem.addEventListener("click",()=>{
-//     var orderOfButtons = ['work', 'rest', 'break', 'work'];
-//     var index = orderOfButtons.indexOf(currentButton.id);
-//     var redirect = orderOfButtons[index + 1];
-
-
-//     clearInterval(PomodoroCounter);
-//     updateDisplay();
-// });
 
 workElem.addEventListener("click", function() {
     timerSetup(25, workElem);
