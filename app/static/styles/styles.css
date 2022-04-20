@@ -181,3 +181,33 @@ li {
     font-size: medium;
     font-variant: small-caps;
 }
+
+.counter-skip {
+    display: none;
+    width: 50px;
+    margin-left: 0;
+    border-radius: 20%;
+    background-color: inherit;
+}
+
+.main-controls-column {
+    display: flex;
+    justify-content: space-between;
+    background-color: inherit;
+}
+
+.controls-column {
+    width: 83px;
+    padding: 2%;
+    padding-top: 0;
+    padding-bottom: 0;
+    cursor: default;
+    background-color: inherit;
+}
+
+.play-btn-column {
+    padding: 2%;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: inherit;
+}

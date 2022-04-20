@@ -11,11 +11,13 @@ class Timer {
     startTimer() {
         this.isPaused = false;
         counterStartElem.innerHTML = 'Pause';
+        counterSkipElem.style.display = 'inline-block';
     }
     
     pauseTimer() {
         this.isPaused = true; 
-        counterStartElem.innerHTML = 'Play';
+        counterStartElem.innerHTML = 'Start';
+        counterSkipElem.style.display = 'none';
     } 
 
     updateDisplay() {

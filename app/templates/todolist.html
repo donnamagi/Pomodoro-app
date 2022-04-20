@@ -8,9 +8,17 @@
             <button id = "rest", class="counter-button rest">REST</button>
             <button id = "break", class="counter-button break">BREAK</button>
         </div>
-        <h1 class="counter-display">00:00</h1>     
-        <button class="counter-start">Start</button>
-        <button class="counter-skip">Skip</button>
+        <h1 class="counter-display">00:00</h1>   
+        <div class="main-controls-column">
+            <div class="controls-column">
+            </div>  
+            <div class="play-btn-column">
+                <button class="counter-start">Start</button>
+            </div>
+            <div class="controls-column">
+                <button class="counter-skip">>></button>          
+            </div>
+        </div>
         <script src="{{ url_for('static',filename='src/timer.js') }}"></script>
         <script src="{{ url_for('static',filename='src/app.js') }}"></script>
     </div>
