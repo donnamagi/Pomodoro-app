@@ -24,13 +24,8 @@ class Timer {
         var time = this.msCalculator(this.remainingTime);
         displayElem.innerHTML = time;
 
-        var checkSequence = {
-            25 : workElem,
-            5 : restElem,
-            15 : breakElem,
-        };
-        if (checkSequence[this.session] != currentButton) {
-            timerSetup(this.session, checkSequence[this.session]);
+        if (this.currentMode[this.session] != currentButton) {
+            timerSetup(this.session, this.currentMode(this.session));
         };
     }
     
@@ -74,6 +69,17 @@ class Timer {
                 return 25;
             case 15:
                 return 25;
+        };
+    }
+
+    currentMode(sequence) {
+        switch (sequence) {
+            case 25:
+                return workElem;
+            case 5:
+                return restElem;
+            case 15:
+                return breakElem;
         };
     }
 

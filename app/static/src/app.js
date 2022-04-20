@@ -45,3 +45,7 @@ counterStartElem.addEventListener("click", () => {
         timer.pauseTimer();
     };
 });
+
+counterSkipElem.addEventListener("click", ()=> {
+    timerSetup(timer.timerSequence(), timer.currentMode(timer.timerSequence()));
+})
