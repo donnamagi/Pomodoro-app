@@ -211,3 +211,32 @@ li {
     padding-bottom: 0;
     background-color: inherit;
 }
+
+@media only screen and (max-width: 1100px) {
+    .todolist {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .navbar {
+        padding-right: 3px;
+    }
+    .nav-button {
+        margin: 0px;
+    }
+
+    .text {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .todolist {
+        margin: 0;
+    }
+
+    .todo_element {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
