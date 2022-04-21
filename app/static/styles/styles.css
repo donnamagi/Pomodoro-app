@@ -109,7 +109,7 @@ li {
     font-size: large;
 }
 
-#todo {
+#todo, #username, #password, #password2 {
     background-color: rgb(133, 133, 133);
     margin: 10px;
     padding: 10px;
@@ -236,6 +236,11 @@ li {
     }
 
     .todo_element {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #todo, #username, #password, #password2 {
         margin-left: 0;
         margin-right: 0;
     }
