@@ -13,10 +13,6 @@ blueprint = Blueprint('main_pages', __name__)
 def index():
     return render_template('index.html', title = 'Pomodoro app')
 
-@blueprint.route('/user', methods= ['GET', 'POST'])
-def authentication():
-    return render_template('authentication.html', title = 'Sign in')
-
 @blueprint.route('/register', methods= ['GET', 'POST'])
 def register():
     form = RegisterForm()
