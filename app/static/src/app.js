@@ -8,6 +8,8 @@ let currentButton = document.getElementById('work');
 
 const timer = new Timer(25);
 
+// Asking user for permission to send notifications
+notificationSetup()
 
 currentButton.style.backgroundColor = "rgb(171, 169, 169)";
 

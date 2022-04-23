@@ -5,7 +5,7 @@ class Timer {
         this.pomodoro = 3;
         this.session = minutes;
         this.updateDisplay();
-        this.interval = setInterval(this.runTimer.bind(this), 1000);
+        this.interval = setInterval(this.runTimer.bind(this), 1);
     };
 
     startTimer() {
@@ -36,6 +36,10 @@ class Timer {
         };
         if (this.remainingTime == 0) {
             clearInterval(this.interval);
+
+            // Notifying the user of state changes
+            notification(this.currentMode(this.session));
+
             this.newInterval();
         }
     }
