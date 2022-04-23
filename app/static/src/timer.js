@@ -5,7 +5,7 @@ class Timer {
         this.pomodoro = 3;
         this.session = minutes;
         this.updateDisplay();
-        this.interval = setInterval(this.runTimer.bind(this), 1);
+        this.interval = setInterval(this.runTimer.bind(this), 1000);
     };
 
     startTimer() {
