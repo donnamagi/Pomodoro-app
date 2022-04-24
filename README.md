@@ -15,24 +15,24 @@ But the user is still free to stop, skip or choose the mode they currently wish.
 
 ## Technical setup 
 
-This project is additionally [deployed through Heroku](https://murmuring-citadel-73709.herokuapp.com) and uses the python framework Flask with a Postgres database. (The database will be SQLite when run locally)
+This project is additionally [deployed through Heroku](https://murmuring-citadel-73709.herokuapp.com) and uses the python framework Flask with a Postgres database. However, when run locally, the database will be SQLite.
 
 ### Website architecture
 
-![Website architecture diagram](diagram.pdf "Diagram")
+![Click me to see the architecture](https://github.com/donnamagi/Pomodoro-app/blob/main/diagram.pdf "Diagram")
 
 ### To set up a local development environment: 
 
-1) Download the repository from Github
-2) Set up a new virtual environment 
-3) Install packages:      pip install -r requirements.txt
+1. Download the repository from Github
+2. Set up a new virtual environment 
+3. Install packages:      __pip install -r requirements.txt__
 
-This will install all packages required to run the application. You will still need to set some config variables.
+> This will install all packages required to run the application. You will still need to set some config variables.
 
-4) Locate the folder .envexample and follow the instructions there
-5) Initialize the database:      flask db init
+4. Locate the folder .envexample and follow the instructions there
+5. Initialize the database:      __flask db init__
 
-You should now be all set to run the application locally. To launch the app, run "flask run" in the terminal.
+> You should now be all set to run the application locally. To launch the app, run __flask run__ in the terminal.
 
 ### Have fun!
 
