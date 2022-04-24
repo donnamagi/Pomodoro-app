@@ -30,7 +30,7 @@ This project is additionally [deployed through Heroku](https://murmuring-citadel
 > This will install all packages required to run the application. You will still need to set some config variables.
 
 4. Locate the file .envexample and follow the instructions there
-5. Initialize the database:      `flask db init`
+5. Initialize the database:      `flask db upgrade`
 
 > You should now be all set to run the application locally. To launch the app, run `flask run` in the terminal.
 
