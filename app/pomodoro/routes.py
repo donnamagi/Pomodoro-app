@@ -23,7 +23,6 @@ def todolist():
         try:
             db.session.add(task)
             db.session.commit()  
-            flash('Task added!')
             return redirect(url_for('pomodoro.todolist'))
         except:
             db.session.rollback()
@@ -36,9 +35,8 @@ def todolist():
 def delete(task):
 
     todo = Todos.query.filter_by(task = task).first()
-    print(todo)
     db.session.delete(todo)
     db.session.commit()
 
-    return redirect(url_for('pomodoro.todolist')), flash("Entry deleted")
+    return redirect(url_for('pomodoro.todolist'))
 
