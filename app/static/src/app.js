@@ -11,12 +11,12 @@ const timer = new Timer(25);
 // Asking user for permission to send notifications
 notificationSetup()
 
-currentButton.style.backgroundColor = "var(--light-green)";
+currentButton.style.filter = "brightness(160%)";
 
 function currentlyActive(selected){
-    currentButton.style.backgroundColor = "var(--green)";     // Removes previous highlight
+    currentButton.style.filter = "brightness(100%)";     // Removes previous highlight
     currentButton = document.getElementById(selected);   // Reassigns active button
-    currentButton.style.backgroundColor = "var(--light-green)";
+    currentButton.style.filter = "brightness(160%)";
 }
 
 function timerSetup(minutes, element) {
