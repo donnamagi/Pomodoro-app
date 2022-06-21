@@ -1,8 +1,17 @@
+:root {
+    --brown: rgb(63, 41, 43);
+    --green: rgb(91, 108, 93);
+    --light-green: rgb(135, 150, 137);
+    --lilac: rgb(118, 123, 145);
+    --linen: rgb(249, 235, 224);
+    --orange: rgb(254, 82, 52);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
-    background-color: rgb(73, 73, 73);
-    color:white;
+    background-color: var(--green);
+    color: var(--linen, white);
     text-decoration: none;
     font-family: 'Courier New', Courier, monospace;
   }
@@ -33,7 +42,7 @@ nav {
 }
 
 .nav-button, button, .done-button, .button {
-    border: solid white 1px;
+    border: solid var(--linen, white) 1px;
     padding: 10px;
     margin: 7px;
     text-align: center;
@@ -43,11 +52,11 @@ nav {
 }
 
 .button {
-	border: solid rgb(124, 123, 120) 1px;
+	border: solid var(--linen) 1px;
 }
 
 .nav-button:hover {
-    background-color: rgb(124, 123, 120);
+    background-color: var(--light-green);
 }
 
 .navbar {
@@ -56,7 +65,7 @@ nav {
 }
 
 header {
-    color: white;
+    color: var(--linen, white);
     padding: 10px;
 
 }
@@ -89,7 +98,7 @@ ul {
 
 .todo_element {
     display: flex;
-    border: solid white 1px;
+    border: solid var(--linen, white) 1px;
     margin: 10px;
     padding: 2%;
     justify-content: space-between;
@@ -102,7 +111,8 @@ li {
 
 .done-button {
     border-radius: 10%;
-    background-color: rgb(133, 133, 133);  
+    background-color: var(--linen);  
+    color: var(--green);
 }
 .task {
     text-align: left;
@@ -110,7 +120,7 @@ li {
 }
 
 #todo, #username, #password, #password2 {
-    background-color: rgb(133, 133, 133);
+    background-color: var(--light-green);
     margin: 10px;
     padding: 10px;
 	border: 0;
@@ -122,7 +132,7 @@ li {
 #submit {
     margin: 6px 10px;
 	padding: 10px;
-	border: solid rgb(124, 123, 120) 1px;
+	border: solid var(--linen) 1px;
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -141,11 +151,12 @@ li {
     text-align: left;
 }
 .counter {
-    background-color: rgb(133, 133, 133);
+    background-color: var(--linen);
     border-radius: 3%;
 }
 .counter-display {
     font-size: 100px;
+    color: var(--green, black);
     background-color: inherit;
     margin-top: 0;
 }
@@ -174,6 +185,7 @@ li {
     width: 83px;
     background-color: inherit;
     font-size:large;
+    background-color: var(--green);
 }
 
 .counter-start, .counter-skip {
@@ -188,6 +200,8 @@ li {
     margin-left: 0;
     border-radius: 20%;
     background-color: inherit;
+    color: var(--green);
+    font-weight: 600;
 }
 
 .main-controls-column {
